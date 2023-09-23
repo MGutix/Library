@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Library</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Library</h1>
+    </div>
+    <div class="mainContent">
+        <button data-open-modal id="addBook">+ Add Book</button>
+
+        <dialog data-modal>
+            <form method="dialog">
+
+                <input type="text" name="bookTitle" id="bookTitle" placeholder="Title">
+                <input type="text" name="bookAuthor" id="bookAuthor" placeholder="Author">
+                <input type="number" name="bookPages" id="bookPages" placeholder="Number of pages">
+
+                <div class="isReadContainer">
+                    <label for="bookIsRead">Have you read it?</label>
+                    <input type="checkbox" name="bookIsRead" id="bookIsRead">
+                </div>
+
+                <button type="submit" id="submit">Submit</button>
+            </form>
+        </dialog>
+
+        <div id="bookArea"></div>
+    </div>
+    <footer>Marcos Gutierrez</footer>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
