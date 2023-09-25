@@ -17,7 +17,7 @@ function Book (name, author, pages, isRead) {
   this.isRead = isRead;
 
   this.toggleIsRead = () => {
-    console.log('hola')
+    console.log(`Before swap ${this.isRead}`)
     if(this.isRead === 'Read'){
       this.isRead = 'Not Read'
       //cardIsRead.setAttribute("class", "notRead");
@@ -26,6 +26,7 @@ function Book (name, author, pages, isRead) {
       //cardIsRead.setAttribute("class", "read");
     }
     
+    console.log(`After swap ${this.isRead}`)
   }
 }
 
@@ -38,7 +39,7 @@ function addBookToLibrary() {
     input.value = '';
   });
   
-  console.log(myLibrary)
+  //console.log(myLibrary)
 
   submit.addEventListener('click', displayBooks)
 
@@ -86,6 +87,18 @@ function displayBooks() {
     cardBookPages.appendChild(contentBookPage);
 
     let cardIsRead = document.createElement('button');
+    cardIsRead.addEventListener('click', () => {
+      if(myLibrary[i].isRead === 'Read'){
+        cardIsRead.classList.remove('read')
+        cardIsRead.classList.add('notRead')
+        cardIsRead.textContent = 'Not Read';
+      } else{
+        cardIsRead.classList.remove('notRead')
+        cardIsRead.classList.add('read')
+        cardIsRead.textContent = 'Read';
+      }
+      myLibrary[i].toggleIsRead();
+    });
     cardIsRead.setAttribute('data-index', `${i}`);
     if(myLibrary[i].isRead === 'Read'){
       cardIsRead.setAttribute('class', 'read');
@@ -108,11 +121,3 @@ function displayBooks() {
 }
 
 addBookBtn.addEventListener('click', addBookToLibrary)
-
-
-cardIsRead = document.getElementsByClassName('cardIsRead');
-for (let i = 0; i < cardIsRead.length; i++) {
-  cardIsRead[i].addEventListener('click', toggleIsRead);
-}
-
-
