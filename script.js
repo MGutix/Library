@@ -67,6 +67,7 @@ function displayBooks() {
   for (let i = 0; i<myLibrary.length; i++) {
     let newCard = document.createElement('div');
     newCard.setAttribute("class", "bookCard");
+    newCard.setAttribute('data-index', i);
 
     let cardBookName = document.createElement('h3');
     cardBookName.setAttribute("class", "cardBookName");
@@ -99,7 +100,6 @@ function displayBooks() {
       }
       myLibrary[i].toggleIsRead();
     });
-    cardIsRead.setAttribute('data-index', `${i}`);
     if(myLibrary[i].isRead === 'Read'){
       cardIsRead.setAttribute('class', 'read');
     } else{
@@ -115,6 +115,12 @@ function displayBooks() {
     newCard.appendChild(cardRemove);
     let contentCardRemove = document.createTextNode(`Remove`);
     cardRemove.appendChild(contentCardRemove);
+    cardRemove.addEventListener('click', () => {
+      
+      myLibrary.splice(i,1);
+      newCard.remove();
+      console.log(myLibrary)
+    })
 
     bookArea.appendChild(newCard);
   }
