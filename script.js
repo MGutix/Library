@@ -10,23 +10,25 @@ let isRead;
 
 const myLibrary = [];
 
-function Book (name, author, pages, isRead) {
-  this.name = name;
-  this.author = author;
-  this.pages = pages;
-  this.isRead = isRead;
+class Book {
+  constructor (name, author, pages, isRead) {
+    this.name = name;
+    this.author = author;
+    this.pages = pages;
+    this.isRead = isRead;
 
-  this.toggleIsRead = () => {
-    console.log(`Before swap ${this.isRead}`)
-    if(this.isRead === 'Read'){
-      this.isRead = 'Not Read'
+    this.toggleIsRead = () => {
+      console.log(`Before swap ${this.isRead}`)
+      if(this.isRead === 'Read'){
+        this.isRead = 'Not Read'
+        
+      } else{
+        this.isRead = 'Read'
+        
+      }
       
-    } else{
-      this.isRead = 'Read'
-      
+      console.log(`After swap ${this.isRead}`)
     }
-    
-    console.log(`After swap ${this.isRead}`)
   }
 }
 
