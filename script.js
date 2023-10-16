@@ -20,10 +20,10 @@ function Book (name, author, pages, isRead) {
     console.log(`Before swap ${this.isRead}`)
     if(this.isRead === 'Read'){
       this.isRead = 'Not Read'
-      //cardIsRead.setAttribute("class", "notRead");
+      
     } else{
       this.isRead = 'Read'
-      //cardIsRead.setAttribute("class", "read");
+      
     }
     
     console.log(`After swap ${this.isRead}`)
@@ -39,7 +39,7 @@ function addBookToLibrary() {
     input.value = '';
   });
   
-  //console.log(myLibrary)
+  
 
   submit.addEventListener('click', displayBooks)
 
