@@ -43,7 +43,20 @@ function addBookToLibrary() {
   
   
 
-  submit.addEventListener('click', displayBooks)
+  submit.addEventListener('click', () => {
+    
+    let bookTitleInput = document.getElementById('bookTitle')
+    let bookAuthorInput = document.getElementById('bookAuthor')
+    let bookPagesInput = document.getElementById('bookPages')
+    let isNotEmpty = false
+    if(bookTitleInput.value!=='' && bookAuthorInput.value!=='' && bookPagesInput.value!==''){
+      isNotEmpty = true
+    }
+
+    if (isNotEmpty === true){
+      displayBooks()
+    }
+  })
 
 }
 
